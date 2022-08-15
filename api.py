@@ -29,6 +29,15 @@ app.config['JSON_AS_ASCII'] = False
 def homepage():
     return'A API está no ar!'
 
+@app.route('/create', methods=['GET'])
+def create():
+    data = request.args.get('data')
+    status = request.args.get('status')
+    mensagem = request.args.get('mensagem')
+    sql = sql = f'INSERT INTO Conversa (data, status, mensagem) VALUES (STR_TO_DATE("{data}", "%Y-%m-%d"), {status}, "{mensagem}");'
+    cursor.execute(sql)
+    con.commit()
+    return "CREATE"
 
 @app.route('/listamensagens')
 def listamensagens():
