@@ -15,6 +15,7 @@ pip install requests
 ```
 python api.py
 ```
+A API estará em execução em http://127.0.0.1:5000/
 
 ## Listagem das Mensagens
 
