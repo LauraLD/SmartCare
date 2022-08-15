@@ -4,6 +4,7 @@ import mysql.connector
 from flask import Flask, jsonify
 from flask import request
 
+#Nesta conexão é feita uma configuração hardcoded a título de exercício. Em produção esses dados não devem se manter expostos.
 con = mysql.connector.connect(host='localhost',
                       port=3306,
                       user='root',
@@ -12,8 +13,6 @@ con = mysql.connector.connect(host='localhost',
 
 
 cursor = con.cursor()
-
-#READ
 
 sql = 'SELECT mensagem FROM Conversa;'
 cursor.execute(sql)
@@ -29,6 +28,7 @@ app.config['JSON_AS_ASCII'] = False
 def homepage():
     return'A API está no ar!'
 
+#CREATE
 @app.route('/create', methods=['GET'])
 def create():
     data = request.args.get('data')
@@ -39,13 +39,15 @@ def create():
     con.commit()
     return "CREATE"
 
+#READ
 @app.route('/listamensagens')
 def listamensagens():
     resposta_lista_mensagens = res
     return jsonify(resposta_lista_mensagens)
 
+#UPDATE
 @app.route('/update', methods=['GET'])
-def delete():
+def update():
     status_old = request.args.get('statusold')
     status_new = request.args.get('statusnew')
     sql = f'UPDATE Conversa SET status = {status_new} WHERE status = {status_old};'
@@ -53,6 +55,7 @@ def delete():
     con.commit()
     return "UPDATE STATUS"
 
+#DELETE
 @app.route('/delete', methods=['GET'])
 def delete():
     status = request.args.get('status')
