@@ -1,6 +1,7 @@
 # API SmartCare 
 
 Esta é uma API exemplo criada em Python usando Flask
+
 O dump do banco de dados está no arquivo `Smart_Care.sql`
 
 É possível também fazer requisições a API como o exemplo que está em `request.py`
