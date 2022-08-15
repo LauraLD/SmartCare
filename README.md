@@ -6,6 +6,10 @@ O dump do banco de dados está no arquivo `Smart_Care.sql`
 
 É possível também fazer requisições a API como o exemplo que está em `request.py`
 
+Existe um exemplo de CRUD em `crud.py`
+
+Existe um exemplo de conexão com o mySQL em `conexao.py`
+
 ## Exigências
 - Python 3.6
 - MySQL
