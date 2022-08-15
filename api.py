@@ -17,7 +17,6 @@ cursor = con.cursor()
 sql = 'SELECT mensagem FROM Conversa;'
 cursor.execute(sql)
 res = cursor.fetchall() #ler o bd
-print(res)
 
 app = Flask(__name__)
 
