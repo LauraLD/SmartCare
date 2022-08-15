@@ -35,6 +35,8 @@ Solicite o endpoint, `/create`, com os parâmetros `?data=&status=&mensagem=` pa
 
 Solicite o endpoint, `/listamensagens`, para a listagem de todas as mensagens.
 
+Solicite o endpoint, `/listamensagens`, com os parâmetros `?status=` para listagem de mensagens de um determinado status.
+
 ## Atualização da Mensagem
 
 Solicite o endpoint, `/update`, com os parâmetros `?statusold=&statusnew=` para atualizar o status das mensagens.
