@@ -34,7 +34,7 @@ def create():
     return "CREATE"
 
 #READ
-@app.route('/listamensagens')
+@app.route('/listamensagens', methods=['GET'])
 def listamensagens():
     cursor = con.cursor()
     status = request.args.get('status')
