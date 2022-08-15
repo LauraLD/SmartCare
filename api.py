@@ -37,9 +37,12 @@ def create():
 @app.route('/listamensagens')
 def listamensagens():
     cursor = con.cursor()
+    status = request.args.get('status')
     sql = 'SELECT mensagem FROM Conversa;'
+    if status is not None:
+       sql = f'SELECT mensagem FROM Conversa WHERE status = (SELECT id FROM Status WHERE nome = "{status}");'
     cursor.execute(sql)
-    res = cursor.fetchall() #ler o bd
+    res = cursor.fetchall()
     resposta_lista_mensagens = res
     cursor.close()
     return jsonify(resposta_lista_mensagens)
